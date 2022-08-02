@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -26,17 +26,23 @@ class MusicCard extends React.Component {
     const foundTrack = album.find((track) => track.trackId === trackId);
 
     if (!alreadyExists) {
-      this.setState((prevState) => ({
-        favoriteTracks: [...prevState.favoriteTracks, foundTrack],
-        isLoading: true,
-      }), async () => {
+      this.setState({ isLoading: true }, async () => {
         await addSong(foundTrack);
-        this.setState({ isLoading: false });
+        const newList = await getFavoriteSongs();
+        this.setState(({
+          isLoading: false,
+          favoriteTracks: newList,
+        }));
       });
     } else {
-      const filteredList = favoriteTracks.filter((track) => track.trackId !== trackId);
-      this.setState({
-        favoriteTracks: filteredList,
+      this.setState({ isLoading: true }, async () => {
+        // const filteredList = favoriteTracks.filter((track) => track.trackId !== trackId);
+        await removeSong(foundTrack);
+        const filteredList = await getFavoriteSongs();
+        this.setState(({
+          favoriteTracks: filteredList,
+          isLoading: false,
+        }));
       });
     }
   }
