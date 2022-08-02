@@ -1,14 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
       favoriteTracks: [],
-      isLoading: false,
+      isLoading: true,
     };
+  }
+
+  async componentDidMount() {
+    const recoveredFavorites = await getFavoriteSongs();
+    this.setState({
+      favoriteTracks: recoveredFavorites,
+      isLoading: false,
+    });
   }
 
   handleChange = (trackId) => {
