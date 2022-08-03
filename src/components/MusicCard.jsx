@@ -36,7 +36,6 @@ class MusicCard extends React.Component {
       });
     } else {
       this.setState({ isLoading: true }, async () => {
-        // const filteredList = favoriteTracks.filter((track) => track.trackId !== trackId);
         await removeSong(foundTrack);
         const filteredList = await getFavoriteSongs();
         this.setState(({
@@ -77,7 +76,6 @@ class MusicCard extends React.Component {
                 />
               </label>
             </li>))}
-
       </ul>
     );
   }
