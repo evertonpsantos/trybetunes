@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import Header from './Header';
 
@@ -50,7 +51,9 @@ export default class ProfileEdit extends React.Component {
       description,
       email,
     };
+    this.setState({ isLoading: true });
     await updateUser(newInfo);
+    this.setState({ isLoading: false });
     history.push('/profile');
   }
 
@@ -60,66 +63,76 @@ export default class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        <form>
-          <label htmlFor="edit-input-name">
-            {/* Nome: */}
-            <input
-              type="text"
-              data-testid="edit-input-name"
-              value={ name }
-              id="edit-input-name"
-              onChange={ this.handleChange }
-              name="name"
-            />
-          </label>
+        { isLoading ? <p>Carregando...</p>
+          : (
+            <form>
+              <label htmlFor="edit-input-name">
+                Nome:
+                <input
+                  type="text"
+                  data-testid="edit-input-name"
+                  value={ name }
+                  id="edit-input-name"
+                  onChange={ this.handleChange }
+                  name="name"
+                />
+              </label>
 
-          <label htmlFor="edit-input-email">
-            {/* E-mail: */}
-            <input
-              type="email"
-              data-testid="edit-input-email"
-              value={ email }
-              id="edit-input-email"
-              onChange={ this.handleChange }
-              name="email"
-            />
-          </label>
+              <label htmlFor="edit-input-email">
+                E-mail:
+                <input
+                  type="email"
+                  data-testid="edit-input-email"
+                  value={ email }
+                  id="edit-input-email"
+                  onChange={ this.handleChange }
+                  name="email"
+                />
+              </label>
 
-          <label htmlFor="edit-input-description">
-            {/* Descrição: */}
-            <textarea
-              data-testid="edit-input-description"
-              value={ description }
-              id="edit-input-description"
-              onChange={ this.handleChange }
-              name="description"
-            />
-          </label>
+              <label htmlFor="edit-input-description">
+                Descrição:
+                <textarea
+                  data-testid="edit-input-description"
+                  value={ description }
+                  id="edit-input-description"
+                  onChange={ this.handleChange }
+                  name="description"
+                />
+              </label>
 
-          <label htmlFor="edit-input-image">
-            {/* Imagem: */}
-            <input
-              type="text"
-              data-testid="edit-input-image"
-              value={ image }
-              id="edit-input-image"
-              onChange={ this.handleChange }
-              name="image"
-            />
-          </label>
+              <label htmlFor="edit-input-image">
+                Imagem:
+                <input
+                  type="text"
+                  data-testid="edit-input-image"
+                  value={ image }
+                  id="edit-input-image"
+                  onChange={ this.handleChange }
+                  name="image"
+                />
+              </label>
 
-          <button
-            type="submit"
-            data-testid="edit-button-save"
-            disabled={ buttonDisabled }
-            onClick={ this.handleClick }
-          >
-            Editar perfil
+              <button
+                type="submit"
+                data-testid="edit-button-save"
+                disabled={ buttonDisabled }
+                onClick={ this.handleClick }
+              >
+                Editar perfil
 
-          </button>
+              </button>
 
-        </form>
+            </form>
+          )}
+
       </div>
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
