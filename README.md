@@ -1,13 +1,14 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+# Trybetunes
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+In this project i had to create components to consume a song preview API. It should be able to login, look for artists, play a small portion of the song, favoriting songs and editing your profile.
+
+## Components i created:
+
+- Album, Favorites, Header, Login, MusicCard, NotFound, Profile, ProfileEdit, Search
+> Service files provided by Trybe
+
+## Stacks
+
+React, React-Router, Javascript, CSS.
+
