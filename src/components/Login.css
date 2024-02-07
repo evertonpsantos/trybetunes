@@ -1,0 +1,30 @@
+.login-form-container {
+  display: flex;
+  text-align: center;
+}
+
+.login-form-title {
+  color: rgb(235, 202, 20);
+  font-size: 50px;
+}
+
+
+.login-form {
+  margin: 150px auto;
+}
+
+.login-name-input {
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.login-button {
+  border: none;
+  border-radius: 3px;
+  height: 42px;
+}
+
+.login-button-enabled {
+  background-color: rgb(235, 202, 20);
+}

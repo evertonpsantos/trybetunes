@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
+import './Login.css';
 
 export default class Login extends React.Component {
   constructor() {
@@ -40,27 +41,29 @@ export default class Login extends React.Component {
     const { enableButton, userName, isLoading } = this.state;
 
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login-form-container">
         { isLoading ? <p>Carregando...</p> : (
-          <form>
-            <label htmlFor="login-name-input">
-              Nome:
-              <input
-                data-testid="login-name-input"
-                id="login-name-input"
-                onChange={ this.handleChangeInput }
-                name="userName"
-                value={ userName }
-              />
-            </label>
+          <form className="login-form">
+            <p className="login-form-title">TrybeTunes</p>
+            <input
+              data-testid="login-name-input"
+              id="login-name-input"
+              onChange={ this.handleChangeInput }
+              name="userName"
+              value={ userName }
+              placeholder="Name"
+              className="login-name-input"
+            />
             <button
               type="submit"
               data-testid="login-submit-button"
               id="login-submit-button"
               disabled={ enableButton }
               onClick={ this.handleButtonClick }
+              className={ enableButton
+                ? 'login-button' : 'login-button-enabled login-button' }
             >
-              Entrar
+              Login
             </button>
           </form>
         )}
