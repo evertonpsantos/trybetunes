@@ -27,4 +27,9 @@
 
 .login-button-enabled {
   background-color: rgb(235, 202, 20);
+  opacity: 90%;
+}
+
+.login-button:hover {
+  opacity: 100%;
 }
