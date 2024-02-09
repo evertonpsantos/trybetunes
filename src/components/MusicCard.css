@@ -1,0 +1,38 @@
+:root {
+
+  --yellow-main: rgb(235, 202, 20);
+
+  --text-color: rgb(173, 164, 164);
+
+  --track-bg-color: rgb(49, 49, 47);
+}
+
+.track-list {
+  display: flex;
+  flex-flow: column;
+  margin: 10px auto 40px;
+}
+
+.album-track {
+  align-items: center;
+  background-color: var(--track-bg-color);
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row;
+  height: 20px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.track-name {
+  width: 70%;
+}
+
+.track-preview {
+  margin: 0 10px;
+}
+
+li {
+  color: var(--text-color);
+  list-style: none;
+}

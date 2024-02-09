@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import './MusicCard.css';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -54,9 +55,14 @@ class MusicCard extends React.Component {
       <ul className="track-list">
         { isLoading ? <p>Carregando...</p>
           : album.map((track, index) => (
-            <li key={ index } id={ index }>
-              <p>{track.trackName}</p>
-              <audio data-testid="audio-component" src={ `${track.previewUrl}` } controls>
+            <li key={ index } id={ index } className="album-track">
+              <p className="track-name">{track.trackName}</p>
+              <audio
+                data-testid="audio-component"
+                src={ `${track.previewUrl}` }
+                controls
+                className="track-preview"
+              >
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 {' '}
@@ -65,7 +71,7 @@ class MusicCard extends React.Component {
                 .
               </audio>
               <label htmlFor="checkbox-music">
-                Favorita
+                ❤️
                 <input
                   checked={ favoriteTracks
                     .some((song) => song.trackId === track.trackId) }
