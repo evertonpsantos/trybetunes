@@ -1,0 +1,33 @@
+.profile-page {
+  display: flex;
+  margin: 50px;
+  text-align: center;
+}
+
+.profile-image-container {
+  width: 50%;
+}
+
+.profile-info-container {
+  color: var(--text-color);
+  display: flex;
+  flex-flow: column;
+  font-size: 20px;
+  justify-content: space-around;
+}
+
+.profile-image {
+  height: 300px;
+  margin-left: 300px;
+  width: 300px;
+}
+
+.edit-profile-button {
+  color: var(--yellow-main);
+  opacity: 90%;
+  text-decoration: none;
+}
+
+.edit-profile-button:hover {
+  opacity: 100%;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Header from './Header';
+import './Profile.css';
 
 export default class Profile extends React.Component {
   constructor() {
@@ -30,18 +31,27 @@ export default class Profile extends React.Component {
     const { name, image, description, email, isLoading } = this.state;
 
     const userInfo = (
-      <div>
-        <img data-testid="profile-image" src={ image } alt={ name } />
-        <p>
-          { name }
-        </p>
-        <p>
-          { email }
-        </p>
-        <p>
-          { description }
-        </p>
-        <Link to="/profile/edit">Editar perfil</Link>
+      <div className="profile-page">
+        <div className="profile-image-container">
+          <img
+            data-testid="profile-image"
+            src={ image }
+            alt={ name }
+            className="profile-image"
+          />
+        </div>
+        <div className="profile-info-container">
+          <p>
+            { name }
+          </p>
+          <p>
+            { email }
+          </p>
+          <p>
+            { description }
+          </p>
+          <Link to="/profile/edit" className="edit-profile-button">Edit profile</Link>
+        </div>
       </div>
     );
 
