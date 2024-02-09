@@ -13,7 +13,7 @@ export default class Search extends React.Component {
       isLoading: false,
       artistAlbums: [],
       showAlbums: false,
-      // searchedArtistName: '',
+      searchedArtistName: '',
     };
   }
 
@@ -35,7 +35,7 @@ export default class Search extends React.Component {
       const results = await searchAlbumsAPI(inputText);
       this.setState({
         artistAlbums: results,
-        // searchedArtistName: inputText,
+        searchedArtistName: inputText,
         isLoading: false,
         showAlbums: true,
       });
@@ -44,7 +44,7 @@ export default class Search extends React.Component {
 
   render() {
     const { inputText, isDisabled, isLoading,
-      showAlbums, artistAlbums } = this.state;
+      showAlbums, searchedArtistName, artistAlbums } = this.state;
 
     const albumRendering = artistAlbums
       .map(({ collectionId, collectionName, artworkUrl100, artistName }) => (
@@ -94,11 +94,10 @@ export default class Search extends React.Component {
         { showAlbums && artistAlbums.length === 0 ? <p>Nenhum álbum foi encontrado</p>
           : (
             <section>
-              {/* <p className="searched-artist">
-                Resultado de álbuns de:
-                {' '}
-                {searchedArtistName}
-              </p> */}
+              { searchedArtistName
+              && <p className="searched-artist">
+                {`Results for: ${searchedArtistName}`}
+                 </p>}
               {albumRendering}
             </section>
           )}
