@@ -1,0 +1,39 @@
+.favorite-tracks {
+  display: flex;
+  flex-flow: column;
+  margin: 10px auto 40px;
+}
+
+.favorite-track {
+  align-items: center;
+  background-color: var(--track-bg-color);
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row;
+  height: 20px;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 10px;
+  width: 50%;
+}
+
+.favorite-artist {
+  color: var(--yellow-main);
+  margin-right: 10px;
+  width: 200px;
+}
+
+.favorite-name {
+  width: 70%;
+}
+
+.favorite-preview {
+  margin: 0 10px;
+}
+
+.favorite-cover-album {
+  border-radius: 3px;
+  height: 50px;
+  margin: 5px;
+  width: 50px;
+}
