@@ -26,7 +26,7 @@ class Header extends React.Component {
       <div className="header-container">
         <header data-testid="header-component" className="header-component">
           { isLoading ? <p>Carregando...</p>
-            : <p className="header-user-name">{user.name}</p>}
+            : <p className="header-user-name">{`Hello, ${user.name}`}</p>}
           <nav>
             <Link to="/search" className="header-link">Search</Link>
             <Link to="/favorites" className="header-link">Favorites</Link>
