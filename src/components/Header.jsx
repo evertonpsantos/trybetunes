@@ -28,9 +28,9 @@ class Header extends React.Component {
           { isLoading ? <p>Carregando...</p>
             : <p className="header-user-name">{user.name}</p>}
           <nav>
-            <Link to="/search" data-testid="link-to-search">Buscar</Link>
-            <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
-            <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+            <Link to="/search" className="header-link">Search</Link>
+            <Link to="/favorites" className="header-link">Favorites</Link>
+            <Link to="/profile" className="header-link">Profile</Link>
           </nav>
 
         </header>

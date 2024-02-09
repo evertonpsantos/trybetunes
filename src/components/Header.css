@@ -14,8 +14,8 @@
 
 .header-user-name {
   color: rgb(173, 164, 164);
+  font-size: 20px;
   text-align: center;
-  font-size: 25px;
 }
 
 nav {
@@ -23,16 +23,16 @@ nav {
   justify-content: space-between;
 }
 
-a {
+.header-link {
   color: var(--yellow-main);
-  font-size: 25px;
+  font-size: 20px;
 }
 
-a:link {
+.header-link:link {
   opacity: 80%;
   text-decoration: none;
 }
 
-a:visited { text-decoration: none;}
+.header-link:visited { text-decoration: none;}
 
-a:hover { opacity: 100%;}
+.header-link:hover { opacity: 100%;}
