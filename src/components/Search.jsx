@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from './Header';
+import './Search.css';
 
 export default class Search extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ export default class Search extends React.Component {
       isLoading: false,
       artistAlbums: [],
       showAlbums: false,
-      searchedArtistName: '',
+      // searchedArtistName: '',
     };
   }
 
@@ -34,7 +35,7 @@ export default class Search extends React.Component {
       const results = await searchAlbumsAPI(inputText);
       this.setState({
         artistAlbums: results,
-        searchedArtistName: inputText,
+        // searchedArtistName: inputText,
         isLoading: false,
         showAlbums: true,
       });
@@ -43,7 +44,7 @@ export default class Search extends React.Component {
 
   render() {
     const { inputText, isDisabled, isLoading,
-      showAlbums, searchedArtistName, artistAlbums } = this.state;
+      showAlbums, artistAlbums } = this.state;
 
     const albumRendering = artistAlbums
       .map(({ collectionId, collectionName, artworkUrl100, artistName }) => (
@@ -61,19 +62,20 @@ export default class Search extends React.Component {
       ));
 
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="page-container">
         <Header />
         { isLoading ? <p>Carregando...</p> : (
-          <form>
+          <form className="form-search">
             <label htmlFor="search-artist-input">
               <input
                 type="text"
                 data-testid="search-artist-input"
-                placeholder="Nome do artista"
+                placeholder="Search for an artist or album"
                 id="search-artist-input"
                 name="inputText"
                 value={ inputText }
                 onChange={ this.handleChange }
+                className="search-input"
               />
             </label>
 
@@ -83,19 +85,20 @@ export default class Search extends React.Component {
               id="search-button"
               disabled={ isDisabled }
               onClick={ this.handleClick }
+              className="search-button"
             >
-              Pesquisar
+              🔎
             </button>
           </form>
         )}
         { showAlbums && artistAlbums.length === 0 ? <p>Nenhum álbum foi encontrado</p>
           : (
             <section>
-              <p>
+              {/* <p className="searched-artist">
                 Resultado de álbuns de:
                 {' '}
                 {searchedArtistName}
-              </p>
+              </p> */}
               {albumRendering}
             </section>
           )}
