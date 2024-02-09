@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
+import './Album.css';
 
 export default class Album extends React.Component {
   constructor() {
@@ -26,9 +27,21 @@ export default class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <span data-testid="artist-name">{albumInfo.artistName}</span>
-        <span data-testid="album-name">{albumInfo.collectionName}</span>
-        <MusicCard album={ onlyTracks } />
+        <div className="album-details-page">
+          <span
+            data-testid="artist-name"
+            className="artist-name"
+          >
+            {albumInfo.artistName}
+          </span>
+          <span
+            data-testid="album-name"
+            className="album-name"
+          >
+            {albumInfo.collectionName}
+          </span>
+          <MusicCard album={ onlyTracks } />
+        </div>
       </div>
     );
   }

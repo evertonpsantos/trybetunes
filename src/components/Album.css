@@ -1,0 +1,19 @@
+:root {
+
+  --yellow-main: rgb(235, 202, 20);
+
+  --text-color: rgb(173, 164, 164);
+}
+
+.album-details-page {
+  display: flex;
+  flex-flow: column;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.artist-name, .album-name {
+  color: var(--text-color);
+  font-size: 23px;
+  padding: 10px 0;
+}
