@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
@@ -13,7 +14,7 @@ export default class Search extends React.Component {
       isLoading: false,
       artistAlbums: [],
       showAlbums: false,
-      searchedArtistName: '',
+      // searchedArtistName: '',
     };
   }
 
@@ -35,7 +36,7 @@ export default class Search extends React.Component {
       const results = await searchAlbumsAPI(inputText);
       this.setState({
         artistAlbums: results,
-        searchedArtistName: inputText,
+        // searchedArtistName: inputText,
         isLoading: false,
         showAlbums: true,
       });
@@ -44,19 +45,33 @@ export default class Search extends React.Component {
 
   render() {
     const { inputText, isDisabled, isLoading,
-      showAlbums, searchedArtistName, artistAlbums } = this.state;
+      showAlbums, artistAlbums } = this.state;
+
+    const maxLength = 10;
 
     const albumRendering = artistAlbums
       .map(({ collectionId, collectionName, artworkUrl100, artistName }) => (
-        <div key={ collectionId }>
-          <img src={ artworkUrl100 } alt={ collectionName } />
-          <p>{collectionName}</p>
-          <p>{artistName}</p>
+        <div key={ collectionId } className="search-album-card">
           <Link
             to={ `/album/${collectionId}` }
             data-testid={ `link-to-album-${collectionId}` }
+            className="album-details-link"
           >
-            Mais Detalhes
+            <img
+              src={ artworkUrl100 }
+              alt={ collectionName }
+              className="img-search-album"
+            />
+            <p>
+              {
+                collectionName.length < maxLength ? collectionName
+                  : `${collectionName.slice(0, maxLength)} ...`
+              }
+            </p>
+            <p>
+              { artistName.length < maxLength ? artistName
+                : `${artistName.slice(0, maxLength)} ...`}
+            </p>
           </Link>
         </div>
       ));
@@ -93,11 +108,11 @@ export default class Search extends React.Component {
         )}
         { showAlbums && artistAlbums.length === 0 ? <p>Nenhum álbum foi encontrado</p>
           : (
-            <section>
-              { searchedArtistName
+            <section className="results-section">
+              {/* { searchedArtistName
               && <p className="searched-artist">
                 {`Results for: ${searchedArtistName}`}
-                 </p>}
+              </p>} */}
               {albumRendering}
             </section>
           )}
