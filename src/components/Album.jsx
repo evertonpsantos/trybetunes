@@ -28,11 +28,16 @@ export default class Album extends React.Component {
       <div data-testid="page-album">
         <Header />
         <div className="album-details-page">
+          <img
+            src={ albumInfo.artworkUrl100 }
+            alt={ albumInfo.collectionName }
+            className="album-cover"
+          />
           <span
             data-testid="artist-name"
             className="artist-name"
           >
-            {albumInfo.artistName}
+            {(albumInfo.artistName)}
           </span>
           <span
             data-testid="album-name"
