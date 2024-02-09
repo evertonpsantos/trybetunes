@@ -12,8 +12,20 @@
   text-align: center;
 }
 
-.artist-name, .album-name {
-  color: var(--text-color);
+.artist-name {
+  color: var(--yellow-main);
   font-size: 23px;
   padding: 10px 0;
+}
+
+.album-name {
+  color: rgb(211, 181, 13);
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.album-cover {
+  height: 150px;
+  margin: auto;
+  width: 150px;
 }
