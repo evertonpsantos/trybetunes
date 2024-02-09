@@ -39,3 +39,36 @@
 .searched-artist {
   color: var(--text-color);
 }
+
+.results-section {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 15px 0 0 35px;
+}
+
+.search-album-card {
+  background: rgb(31, 29, 29);
+  border-radius: 10px;
+  color: var(--text-color);
+  display: flex;
+  flex-flow: column;
+  height: 15%;
+  margin: 20px;
+  opacity: 85%;
+  padding: 15px 10px;
+  text-align: center;
+  width: 10%;
+}
+
+.search-album-card:hover {
+  opacity: 100%;
+}
+
+.img-search-album {
+  height: 120px;
+}
+
+.album-details-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
