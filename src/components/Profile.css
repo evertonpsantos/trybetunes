@@ -9,7 +9,7 @@
 }
 
 .profile-info-container {
-  align-items: start;
+  align-items: flex-start;
   color: var(--text-color);
   display: flex;
   flex-flow: column;
