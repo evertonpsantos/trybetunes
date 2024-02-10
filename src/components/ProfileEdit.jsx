@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import Header from './Header';
 import './ProfileEdit.css';
+import Loading from './Loading';
 
 export default class ProfileEdit extends React.Component {
   constructor() {
@@ -64,7 +65,7 @@ export default class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
-        { isLoading ? <p>Carregando...</p>
+        { isLoading ? <Loading />
           : (
             <form className="profile-edit">
               <label htmlFor="edit-input-name">

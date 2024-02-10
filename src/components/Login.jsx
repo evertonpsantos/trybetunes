@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import './Login.css';
+import Loading from './Loading';
 
 export default class Login extends React.Component {
   constructor() {
@@ -42,7 +43,7 @@ export default class Login extends React.Component {
 
     return (
       <div data-testid="page-login" className="login-form-container">
-        { isLoading ? <p>Carregando...</p> : (
+        { isLoading ? <Loading /> : (
           <form className="login-form">
             <p className="login-form-title">TrybeTunes</p>
             <input

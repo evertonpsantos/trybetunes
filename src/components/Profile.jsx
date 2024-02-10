@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Header from './Header';
 import './Profile.css';
+import Loading from './Loading';
 
 export default class Profile extends React.Component {
   constructor() {
@@ -58,7 +59,7 @@ export default class Profile extends React.Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        { isLoading ? <p>Carregando...</p> : userInfo }
+        { isLoading ? <Loading /> : userInfo }
       </div>
     );
   }

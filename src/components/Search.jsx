@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from './Header';
 import './Search.css';
+import Loading from './Loading';
 
 export default class Search extends React.Component {
   constructor() {
@@ -79,7 +80,7 @@ export default class Search extends React.Component {
     return (
       <div data-testid="page-search" className="page-container">
         <Header />
-        { isLoading ? <p>Carregando...</p> : (
+        { isLoading ? <Loading /> : (
           <form className="form-search">
             <label htmlFor="search-artist-input">
               <input

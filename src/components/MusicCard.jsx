@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import './MusicCard.css';
+import Loading from './Loading';
 
 class MusicCard extends React.Component {
   constructor() {
@@ -53,7 +54,7 @@ class MusicCard extends React.Component {
 
     return (
       <ul className="track-list">
-        { isLoading ? <p>Carregando...</p>
+        { isLoading ? <Loading />
           : album.map((track, index) => (
             <li key={ index } id={ index } className="album-track">
               <p className="track-name">{track.trackName}</p>

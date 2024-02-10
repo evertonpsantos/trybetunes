@@ -2,6 +2,7 @@ import React from 'react';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Header from './Header';
 import './Favorites.css';
+import Loading from './Loading';
 
 export default class Favorites extends React.Component {
   constructor() {
@@ -41,7 +42,7 @@ export default class Favorites extends React.Component {
       <div data-testid="page-favorites">
         <Header />
         <ul className="favorite-tracks">
-          { isLoading ? <p>Carregando...</p>
+          { isLoading ? <Loading />
             : favoriteTracks.map((track, index) => (
               <li key={ index } id={ index } className="favorite-track">
                 <p className="favorite-artist">{track.artistName}</p>
