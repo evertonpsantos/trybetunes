@@ -48,7 +48,7 @@ export default class Search extends React.Component {
     const { inputText, isDisabled, isLoading,
       showAlbums, artistAlbums } = this.state;
 
-    const maxLength = 10;
+    const maxLength = 12;
 
     const albumRendering = artistAlbums
       .map(({ collectionId, collectionName, artworkUrl100, artistName }) => (
