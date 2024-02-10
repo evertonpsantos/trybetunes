@@ -4,6 +4,7 @@ import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import './Album.css';
+import Loading from './Loading';
 
 export default class Album extends React.Component {
   constructor() {
@@ -28,16 +29,17 @@ export default class Album extends React.Component {
       <div data-testid="page-album">
         <Header />
         <div className="album-details-page">
-          <img
+          { albumInfo.artworkUrl100 ? <img
             src={ albumInfo.artworkUrl100 }
             alt={ albumInfo.collectionName }
             className="album-cover"
-          />
+          /> : <Loading />}
+
           <span
             data-testid="artist-name"
             className="artist-name"
           >
-            {(albumInfo.artistName)}
+            {String(albumInfo.artistName).toUpperCase()}
           </span>
           <span
             data-testid="album-name"
