@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import Header from './Header';
+import './ProfileEdit.css';
 
 export default class ProfileEdit extends React.Component {
   constructor() {
@@ -65,9 +66,9 @@ export default class ProfileEdit extends React.Component {
         <Header />
         { isLoading ? <p>Carregando...</p>
           : (
-            <form>
+            <form className="profile-edit">
               <label htmlFor="edit-input-name">
-                Nome:
+                Name:
                 <input
                   type="text"
                   data-testid="edit-input-name"
@@ -75,6 +76,7 @@ export default class ProfileEdit extends React.Component {
                   id="edit-input-name"
                   onChange={ this.handleChange }
                   name="name"
+                  className="edit-input"
                 />
               </label>
 
@@ -87,22 +89,26 @@ export default class ProfileEdit extends React.Component {
                   id="edit-input-email"
                   onChange={ this.handleChange }
                   name="email"
+                  className="edit-input"
                 />
               </label>
 
               <label htmlFor="edit-input-description">
-                Descrição:
+                Description:
                 <textarea
                   data-testid="edit-input-description"
                   value={ description }
                   id="edit-input-description"
                   onChange={ this.handleChange }
                   name="description"
+                  className="edit-input"
+                  maxLength="50"
+                  size="1"
                 />
               </label>
 
               <label htmlFor="edit-input-image">
-                Imagem:
+                Image:
                 <input
                   type="text"
                   data-testid="edit-input-image"
@@ -110,6 +116,7 @@ export default class ProfileEdit extends React.Component {
                   id="edit-input-image"
                   onChange={ this.handleChange }
                   name="image"
+                  className="edit-input"
                 />
               </label>
 
@@ -118,8 +125,9 @@ export default class ProfileEdit extends React.Component {
                 data-testid="edit-button-save"
                 disabled={ buttonDisabled }
                 onClick={ this.handleClick }
+                className="edit-btn"
               >
-                Editar perfil
+                Edit
 
               </button>
 

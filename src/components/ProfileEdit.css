@@ -1,0 +1,38 @@
+.profile-edit {
+  background-color: rgb(46, 45, 44);
+  border-radius: 5px;
+  color: var(--text-color);
+  display: flex;
+  flex-flow: column wrap;
+  margin: 50px auto;
+  padding: 15px;
+  text-align: center;
+  width: 700px;
+}
+
+.edit-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  color: grey;
+  font-size: 18px;
+  margin: 15px 10px;
+}
+
+.edit-input:active, .edit-input:focus {
+  outline: none;
+}
+
+.edit-btn {
+  background-color: var(--yellow-main);
+  border: none;
+  border-radius: 3px;
+  margin: auto;
+  opacity: 90%;
+  width: 50px;
+}
+
+.edit-btn:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
