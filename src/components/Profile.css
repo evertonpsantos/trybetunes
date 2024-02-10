@@ -9,11 +9,15 @@
 }
 
 .profile-info-container {
+  align-items: start;
   color: var(--text-color);
   display: flex;
   flex-flow: column;
   font-size: 20px;
-  justify-content: space-around;
+}
+
+.profile-info {
+  margin: 15px 0;
 }
 
 .profile-image {

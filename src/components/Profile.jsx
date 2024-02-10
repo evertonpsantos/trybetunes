@@ -41,13 +41,13 @@ export default class Profile extends React.Component {
           />
         </div>
         <div className="profile-info-container">
-          <p>
+          <p className="profile-info">
             { name }
           </p>
-          <p>
+          <p className="profile-info">
             { email }
           </p>
-          <p>
+          <p className="profile-info">
             { description }
           </p>
           <Link to="/profile/edit" className="edit-profile-button">Edit profile</Link>
